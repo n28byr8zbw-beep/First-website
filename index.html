@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ============================================================
+  WELCOME! This file is HTML — the STRUCTURE of your website.
+  (Remember the house analogy? This is the frame and the rooms.)
+
+  Anything between <!- - and - -> is a "comment" — a note for
+  humans. The browser ignores it completely.
+
+  Look for lines that say "TRY THIS" — those are safe little
+  edits to make the site yours. Save the file, refresh your
+  browser, and watch it change.
+  ============================================================
+-->
+
+<head>
+  <!-- This part is invisible setup: the tab title, fonts, etc. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- TRY THIS: change the text below. It's the name on the browser tab! -->
+  <title>My First Website</title>
+
+  <!-- These lines load two nice fonts from Google, for free. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- This line connects the CSS file (the style / "paint & furniture"). -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ======================================================
+       THE TOP BAR — three dots and a little label,
+       just like the slides from the talk.
+       ====================================================== -->
+  <header class="topbar">
+    <span class="dot dot-orange"></span>
+    <span class="dot dot-blue"></span>
+    <span class="dot dot-yellow"></span>
+    <span class="topbar-label">my first website</span>
+  </header>
+
+  <main>
+
+    <!-- ====================================================
+         THE BIG HEADLINE
+         <h1> means "the most important heading on the page."
+         ==================================================== -->
+    <section class="hero">
+      <p class="hero-kicker">live from a real server, somewhere on earth</p>
+
+      <!-- TRY THIS: put your own name in the headline below. -->
+      <h1 class="hero-title">Hello, Internet.<br>I'm <span class="highlight">Your Name</span>.<span class="cursor">▌</span></h1>
+
+      <!-- TRY THIS: rewrite this sentence in your own words. -->
+      <p class="hero-sub">This page is just three small files — HTML, CSS and JavaScript — and I put it on the internet myself.</p>
+    </section>
+
+    <!-- ====================================================
+         THE THREE LANGUAGES — a quick recap from the talk.
+         Each card is a <div> (a generic box) with text inside.
+         ==================================================== -->
+    <section class="cards">
+
+      <div class="card">
+        <div class="card-stripe stripe-orange"></div>
+        <h2 class="card-title title-orange">HTML</h2>
+        <p class="card-role">Structure · the skeleton</p>
+        <p class="card-text">Every word you're reading right now was put here by a tag in <code>index.html</code>. Including this one.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-stripe stripe-blue"></div>
+        <h2 class="card-title title-blue">CSS</h2>
+        <p class="card-role">Style · the skin</p>
+        <p class="card-text">The colors, the fonts, the rounded corners — all of it lives in <code>style.css</code>. Change one line, change the whole mood.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-stripe stripe-yellow"></div>
+        <h2 class="card-title title-yellow">JavaScript</h2>
+        <p class="card-role">Behavior · the muscles</p>
+        <p class="card-text">The Like button below actually works. The few lines that make it work are in <code>script.js</code>.</p>
+      </div>
+
+    </section>
+
+    <!-- ====================================================
+         THE LIKE BUTTON — the JavaScript demo from the talk.
+         The id="..." labels let script.js find these elements,
+         like name tags.
+         ==================================================== -->
+    <section class="demo">
+      <p class="demo-label">// proof that JavaScript is alive — click it</p>
+      <button id="like-button" class="like-button">
+        <span id="heart" class="heart">♡</span>
+        <span id="like-label">Like</span>
+      </button>
+      <p class="like-count"><span id="like-count">0</span> likes</p>
+    </section>
+
+  </main>
+
+  <!-- ======================================================
+       THE FOOTER — the bottom of the page.
+       TRY THIS: sign your work. Change the name below!
+       ====================================================== -->
+  <footer class="footer">
+    <p>Built by <strong>Your Name</strong> · written in HTML, served from a server, live at a domain — because I deployed it.</p>
+  </footer>
+
+  <!-- This line connects the JavaScript file (the behavior / "electricity").
+       It goes last so the page exists before the script runs. -->
+  <script src="script.js"></script>
+</body>
+</html>

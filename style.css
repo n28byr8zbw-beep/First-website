@@ -1,0 +1,287 @@
+/* ============================================================
+   This file is CSS — the STYLE of your website.
+   (House analogy: the paint, the furniture, the lighting.)
+
+   In CSS, anything between /* and * / is a comment for humans.
+
+   How CSS works, in one sentence:
+   you pick something on the page, then describe how it looks.
+
+     .card  {  background: #fff;  }
+     ^ who      ^ which knob        ^ what to set it to
+
+   Look for "TRY THIS" lines — each one is a safe edit.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   THE PALETTE — every color used on the page, named in one place.
+   These are "variables": change a color here, and it changes
+   everywhere it's used. TRY THIS: make --accent something wild,
+   like hotpink or #00C2FF, then refresh.
+   ------------------------------------------------------------ */
+:root {
+  --ink:    #16181D;   /* near-black, the dark background    */
+  --paper:  #FBF8F1;   /* warm off-white, the light text     */
+  --muted:  #8B8F98;   /* soft grey for quiet text           */
+  --accent: #E2622C;   /* orange — the star of the show      */
+  --blue:   #5B8CFF;
+  --yellow: #EAB308;
+  --green:  #5BC98A;
+  --card:   #1D2026;   /* slightly lighter dark, for boxes   */
+  --line:   #2A2E36;   /* subtle borders                     */
+}
+
+/* Applies to everything: a sane starting point. */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* The whole page. TRY THIS: swap --ink and --paper on the two
+   lines below for instant light mode. */
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'IBM Plex Sans', sans-serif;
+  min-height: 100vh;
+  /* A faint grid in the background, drawn with pure CSS. */
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Everything in <main> sits in a centered column. */
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+
+/* ------------------------------------------------------------
+   THE TOP BAR
+   ------------------------------------------------------------ */
+.topbar {
+  display: flex;              /* lay children out in a row     */
+  align-items: center;
+  gap: 10px;                  /* space between the dots        */
+  padding: 28px 32px;
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot-orange { background: var(--accent); }
+.dot-blue   { background: var(--blue); }
+.dot-yellow { background: var(--yellow); }
+
+.topbar-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-left: 8px;
+}
+
+
+/* ------------------------------------------------------------
+   THE HERO (the big headline area)
+   ------------------------------------------------------------ */
+.hero {
+  padding: 72px 0 64px;
+  /* Fade in gently when the page loads (animation at the bottom). */
+  animation: rise 0.7s ease-out both;
+}
+
+.hero-kicker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 22px;
+}
+
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  /* clamp() = "never smaller than A, never bigger than C" —
+     this is what makes the headline shrink nicely on phones. */
+  font-size: clamp(44px, 8vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -2px;
+}
+
+/* TRY THIS: change var(--accent) to var(--green) here. */
+.highlight { color: var(--accent); }
+
+/* The blinking cursor after the headline. */
+.cursor {
+  color: var(--accent);
+  animation: blink 1.1s step-end infinite;
+}
+
+.hero-sub {
+  font-size: 21px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 560px;
+  margin-top: 26px;
+}
+
+
+/* ------------------------------------------------------------
+   THE THREE CARDS
+   ------------------------------------------------------------ */
+.cards {
+  display: grid;                              /* a grid layout… */
+  grid-template-columns: repeat(3, 1fr);      /* …of 3 equal columns */
+  gap: 18px;
+  animation: rise 0.7s ease-out 0.15s both;   /* fades in second */
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;                /* keeps the stripe's corners round */
+  padding-bottom: 26px;
+  transition: transform 0.18s ease;
+}
+
+/* When your mouse is over a card, lift it slightly. */
+.card:hover { transform: translateY(-4px); }
+
+.card-stripe { height: 6px; }
+.stripe-orange { background: var(--accent); }
+.stripe-blue   { background: var(--blue); }
+.stripe-yellow { background: var(--yellow); }
+
+.card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px;
+  padding: 22px 24px 0;
+}
+.title-orange { color: var(--accent); }
+.title-blue   { color: var(--blue); }
+.title-yellow { color: var(--yellow); }
+
+.card-role {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 6px 24px 0;
+}
+
+.card-text {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #B6BAC2;
+  padding: 14px 24px 0;
+}
+
+/* The little inline code snippets, like index.html. */
+code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  background: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 2px 7px;
+  color: var(--yellow);
+}
+
+
+/* ------------------------------------------------------------
+   THE LIKE BUTTON DEMO
+   ------------------------------------------------------------ */
+.demo {
+  text-align: center;
+  padding: 72px 0 40px;
+  animation: rise 0.7s ease-out 0.3s both;    /* fades in third */
+}
+
+.demo-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.like-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 34px;
+  cursor: pointer;                 /* mouse becomes a pointing hand */
+  transition: all 0.15s ease;
+}
+
+.like-button:hover { border-color: var(--muted); }
+
+/* script.js adds the class "liked" when you click — these rules
+   only apply while that class is on the button. */
+.like-button.liked {
+  border-color: #E2342B;
+  background: #2A1C1B;
+}
+
+.heart { font-size: 24px; line-height: 1; transition: transform 0.15s ease; }
+.like-button.liked .heart { color: #E2342B; transform: scale(1.25); }
+
+.like-count {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 14px;
+}
+
+
+/* ------------------------------------------------------------
+   THE FOOTER
+   ------------------------------------------------------------ */
+.footer {
+  text-align: center;
+  padding: 48px 24px 56px;
+  font-size: 15px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+}
+
+.footer strong { color: var(--paper); }
+
+
+/* ------------------------------------------------------------
+   ANIMATIONS — small recipes the rules above refer to by name.
+   ------------------------------------------------------------ */
+
+/* Start slightly lower and invisible, end in place and visible. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* On, off, on, off — the blinking cursor. */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+
+/* ------------------------------------------------------------
+   PHONES — when the screen is narrower than 700px,
+   stack the three cards instead of squeezing them.
+   (This is what "responsive" means!)
+   ------------------------------------------------------------ */
+@media (max-width: 700px) {
+  .cards { grid-template-columns: 1fr; }
+  .hero { padding-top: 40px; }
+}
